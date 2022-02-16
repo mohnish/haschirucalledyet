@@ -346,9 +346,9 @@
     langEl.innerHTML = triviaText;
     answerEl.innerText = translatedTextWithEmotions;
 
-    let originalDate = new Date('02/20/2021');
+    let legendaryDate = new Date('20 Feb 2021 14:02:00 PDT');
     let now = new Date();
-    let difference = now.getTime() - originalDate.getTime();
+    let difference = now.getTime() - legendaryDate.getTime();
     let daysSpentWaitingForChiruToCallAndChat = Math.ceil(difference / (1000 * 3600 * 24));
     waitingEl.innerHTML = `Days spent waiting for Chiru to call <span class="sadness">${daysSpentWaitingForChiruToCallAndChat}</span> :(`;
   </script>
