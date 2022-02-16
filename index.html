@@ -19,14 +19,12 @@
       font-family: Helvetica, sans-serif;
       font-size: 2rem;
       color: white;
-      text-decoration: underline;
+      /*text-decoration: underline;*/
     }
 
     .yes-no {
-      font-size: 10rem;
+      font-size: 8rem;
       text-align: center;
-      height:90vh;
-      line-height: 90vh;
       color: #fcedd8;
       background: #d52e3f;
       font-family: cursive;
@@ -41,16 +39,32 @@
                   40px 40px 0px #c11a2b,
                   45px 45px 0px #c11a2b;
     }
+
+    .waiting-period {
+      display: inline;
+      text-transform: uppercase;
+      text-align: center;
+      font-family: Helvetica, sans-serif;
+      font-size: 0.8rem;
+      color: white;
+    }
+
+    .sadness {
+      font-weight: bolder;
+      text-decoration: underline;
+      font-size: 1rem;
+    }
   </style>
   <title>Has Chiru Called Yet?</title>
 </head>
 <body>
   <div class="main">
     <div>
-      <span class="yes-no"></span>
+      <p class="yes-no"></p>
     </div>
     <div>
-      <span class="trivia-text"></span>
+      <p class="trivia-text"></p>
+      <p class="waiting-period"></p>
     </div>
   </div>
 
@@ -320,17 +334,25 @@
 
     const langEl = document.querySelector('.trivia-text');
     const answerEl = document.querySelector('.yes-no');
+    const waitingEl = document.querySelector('.waiting-period');
     const randomLang = translations[Math.floor(Math.random() * translations.length)];
     const YES = 'YES';
     const NO = 'NO';
-    const emoji = { [YES]: '🎉', [NO]: '☹️⏳' };
-    const HasChiruCalledYet = false; // MT: move this to a remote control
-    // randomLang: 0: lang, 1: yes in lang, 2: no in lang
-    let yesNoTextWithEmotions = HasChiruCalledYet ? `${randomLang[1]} ${emoji.YES}` : `${randomLang[2]} ${emoji.NO}`;
+    const emoji = { [YES]: '🎉', [NO]: '☹️' };
+    const HasChiruCalledYet = false; // TODO (MT): move this to a remote control
+    // randomLang: 0: lang name, 1: 'yes' in lang, 2: 'no' in lang
+    let translatedTextWithEmotions = HasChiruCalledYet ? `${randomLang[1]} ${emoji.YES}` : `${randomLang[2]} ${emoji.NO}`;
     let yesNoText = HasChiruCalledYet ? YES : NO;
     let triviaText = `<a href="https://donate.wikimedia.org/w/index.php?title=Special:LandingPage&country=US&uselang=en&utm_medium=spontaneous&utm_source=fr-redir&utm_campaign=spontaneous">That's ${yesNoText} in ${randomLang[0]}</a>`;
+
     langEl.innerHTML = triviaText;
-    answerEl.innerText = yesNoTextWithEmotions;
+    answerEl.innerText = translatedTextWithEmotions;
+
+    let originalDate = new Date('02/20/2021');
+    let now = new Date();
+    let difference = now.getTime() - originalDate.getTime();
+    let daysSpentWaitingForChiruToCallAndChat = Math.ceil(difference / (1000 * 3600 * 24));
+    waitingEl.innerHTML = `Days spent waiting for Chiru to call <span class="sadness">${daysSpentWaitingForChiruToCallAndChat}</span> :(`;
   </script>
 </body>
 </html>
