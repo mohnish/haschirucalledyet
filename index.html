@@ -338,7 +338,7 @@
     // randomLang: 0: lang name, 1: 'yes' in lang, 2: 'no' in lang
     let translatedTextWithEmotions = HasChiruCalledYet ? `${YES} ${emoji[YES]}` : `${randomLang[2]} ${emoji[NO]}`;
     let yesNoText = HasChiruCalledYet ? `"never happening"` : NO;
-    let triviaText = `<a href="https://donate.wikimedia.org/w/index.php?title=Special:LandingPage&country=US&uselang=en&utm_medium=spontaneous&utm_source=fr-redir&utm_campaign=spontaneous">That's ${yesNoText} in ${randomLang[0]}</a>`;
+    let triviaText = `That's ${yesNoText} in ${randomLang[0]}`;
 
     langEl.innerHTML = triviaText;
     answerEl.innerText = translatedTextWithEmotions;
@@ -347,7 +347,7 @@
     let now = new Date();
     let difference = now.getTime() - legendaryDate.getTime();
     let daysSpentWaitingForChiruToCallAndChat = Math.ceil(difference / (1000 * 3600 * 24));
-    waitingEl.innerHTML = `Days spent waiting for Chiru to call <span class="sadness">${daysSpentWaitingForChiruToCallAndChat}</span> :(`;
+    waitingEl.innerHTML = `Days spent waiting for Chiru to call <a href="https://donate.wikimedia.org/w/index.php?title=Special:LandingPage&country=US&uselang=en&utm_medium=spontaneous&utm_source=fr-redir&utm_campaign=spontaneous"><span class="sadness">${daysSpentWaitingForChiruToCallAndChat}</span></a> :(`;
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSYBXX4XH1"></script>
   <script>
