@@ -13,8 +13,7 @@
       text-align: center;
     }
 
-    .trivia-text a {
-      display: inline;
+    .trivia-text {
       text-transform: uppercase;
       text-align: center;
       font-size: 2rem;
@@ -32,7 +31,6 @@
     }
 
     .waiting-period {
-      display: inline;
       text-transform: uppercase;
       text-align: center;
       font-size: 0.8rem;
@@ -41,8 +39,8 @@
 
     .sadness {
       font-weight: bolder;
-      text-decoration: underline;
       font-size: 1rem;
+      color: white;
     }
 
     img {
@@ -347,7 +345,7 @@
     let now = new Date();
     let difference = now.getTime() - legendaryDate.getTime();
     let daysSpentWaitingForChiruToCallAndChat = Math.ceil(difference / (1000 * 3600 * 24));
-    waitingEl.innerHTML = `Days spent waiting for Chiru to call <a href="https://donate.wikimedia.org/w/index.php?title=Special:LandingPage&country=US&uselang=en&utm_medium=spontaneous&utm_source=fr-redir&utm_campaign=spontaneous"><span class="sadness">${daysSpentWaitingForChiruToCallAndChat}</span></a> :(`;
+    waitingEl.innerHTML = `Days spent waiting for Chiru to call <a class="sadness" href="https://donate.wikimedia.org/w/index.php?title=Special:LandingPage&country=US&uselang=en&utm_medium=spontaneous&utm_source=fr-redir&utm_campaign=spontaneous">${daysSpentWaitingForChiruToCallAndChat}</a> :(`;
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSYBXX4XH1"></script>
   <script>
